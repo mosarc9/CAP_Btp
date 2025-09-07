@@ -12,7 +12,7 @@ entity Header : cuid, managed {
     Email        : String;
     Firstname    : String;
     Lastname     : String;
-    Country      : String;
+    Country      : /*  */String;
     Creation     : Date;
     Deliverydate : DateTime;
     Status       : Association to Status;
