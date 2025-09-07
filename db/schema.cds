@@ -11,7 +11,8 @@ entity Header {
         Deliverydate : DateTime;
         Orderstatus  : Integer;
         Imageurl     : String;
-        toItems       : Association to many Items on toItems.Headeruuid = $self; 
+        toItems      : Association to many Items
+                           on toItems.Headeruuid = $self;
 
 };
 
@@ -28,5 +29,5 @@ entity Items {
         Depth            : Decimal(12, 2);
         Quantity         : Decimal(13, 3);
         Unitofmeasure    : String;
-        Headeruuid : Association to Header;
+        Headeruuid       : Association to Header;
 }
