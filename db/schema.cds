@@ -31,3 +31,11 @@ entity Items {
         Unitofmeasure    : String;
         Headeruuid       : Association to Header;
 }
+
+//Value Help
+
+entity status {
+    key id          : UUID;
+        Orderstatus : Integer;
+        Descripcion : String;
+}
