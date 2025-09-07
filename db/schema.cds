@@ -11,11 +11,11 @@ entity Header {
         Deliverydate : DateTime;
         Orderstatus  : Integer;
         Imageurl     : String;
-        Itemid       : Association to many Detail; // Itemid_Itemuuid
+        toItems       : Association to many Items on toItems.Headeruuid = $self; 
 
 };
 
-entity Detail {
+entity Items {
     key Itemuuid         : UUID;
         Id               : String;
         Name             : String;
@@ -27,6 +27,6 @@ entity Detail {
         Width            : Decimal(12, 2);
         Depth            : Decimal(12, 2);
         Quantity         : Decimal(13, 3);
-        Unitofmeasure    : String
-
+        Unitofmeasure    : String;
+        Headeruuid : Association to Header;
 }
