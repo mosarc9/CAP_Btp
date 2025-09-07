@@ -6,5 +6,5 @@ service HeaderSrv {
 
     //Value helps
     @readonly
-    entity VH_status as projection on SalesOrder.status;
+    entity VH_status as projection on SalesOrder.Status;
 }
