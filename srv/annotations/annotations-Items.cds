@@ -30,6 +30,12 @@ annotate services.Items with @(
             Value: Description
         },
     },
+
+    UI.SelectionFields:[
+        Name,
+        Description,
+        Releasedate
+    ],
     
     UI.LineItem: [
     {

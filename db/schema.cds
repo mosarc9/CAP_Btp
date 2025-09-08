@@ -17,7 +17,7 @@ entity Header : cuid, managed {
     Deliverydate : DateTime;
     Statu        : Association to Status; // Statu Status_code
     Imageurl     : String;
-    toItems      : Association to many Items
+    toItems      : Composition of many Items
                        on toItems.HeaderID = $self;
 
 };

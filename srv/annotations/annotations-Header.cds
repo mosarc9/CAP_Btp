@@ -1,5 +1,7 @@
 using {HeaderSrv as services} from '../service';
 
+using from './annotations-Items';
+
 annotate services.Header with {
     HeaderID     @title: 'ID';
     Email        @title: 'Email';
@@ -21,21 +23,21 @@ annotate services.Header with {
 
 annotate services.Header with @(
 
-    UI.HeaderInfo                  : {
+    UI.HeaderInfo        : {
         $Type         : 'UI.HeaderInfoType',
         TypeName      : 'Sale Order',
         TypeNamePlural: 'Sales Orders',
         Title         : {
             $Type: 'UI.DataField',
-            Value: Firstname
+            Value: HeaderID
         },
         Description   : {
             $Type: 'UI.DataField',
-            Value: Lastname
+            Value: Firstname
         },
     },
 
-    UI.SelectionFields:[
+    UI.SelectionFields   : [
         HeaderID,
         Firstname,
         Lastname,
@@ -43,7 +45,57 @@ annotate services.Header with @(
         Statu_code
     ],
 
-    UI.LineItem  : [
+    UI.FieldGroup #GroupA: {
+        $Type: 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type: 'UI.DataField',
+                Value: HeaderID
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: Firstname
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: Lastname
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: Email
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: Country
+            },
+                        {
+                $Type: 'UI.DataField',
+                Value: Creation
+            },
+            {
+                $Type      : 'UI.DataField',
+                Value      : Statu_code,
+                Criticality: Statu.Criticality,
+            }
+        ],
+    },
+
+    UI.HeaderFacets      : [{
+        $Type : 'UI.ReferenceFacet',
+        Target: '@UI.FieldGroup#GroupA',
+        Label : 'Sale Order'
+    }],
+
+    UI.Facets            : [
+        {
+            $Type : 'UI.ReferenceFacet',
+            Target: 'toItems/@UI.LineItem',
+            Label : 'Items',
+            ID    : 'toItems'
+        },
+    ],
+
+    UI.LineItem          : [
         {
             $Type: 'UI.DataField',
             Value: HeaderID
