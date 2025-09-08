@@ -15,7 +15,23 @@ annotate services.Items with {
     Unitofmeasure    @title: 'Unit of Measure';
 };
 
-annotate services.Items with @(UI.LineItem: [
+annotate services.Items with @(
+    
+        UI.HeaderInfo                  : {
+        $Type         : 'UI.HeaderInfoType',
+        TypeName      : 'Item',
+        TypeNamePlural: 'Items',
+        Title         : {
+            $Type: 'UI.DataField',
+            Value: Name
+        },
+        Description   : {
+            $Type: 'UI.DataField',
+            Value: Description
+        },
+    },
+    
+    UI.LineItem: [
     {
         $Type: 'UI.DataField',
         Value: ItemsID
