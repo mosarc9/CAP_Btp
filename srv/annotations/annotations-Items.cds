@@ -18,17 +18,25 @@ annotate services.Items with {
 annotate services.Items with @(UI.LineItem: [
     {
         $Type: 'UI.DataField',
-        Value: ID
+        Value: ItemsID
     },
 
     {
         $Type: 'UI.DataField',
-        Value: Name
+        Value: Name,
+        ![@HTML5.CssDefaults]: {
+            $Type: 'HTML5.CssDefaultsType',
+            width: '15rem'
+        },
     },
 
     {
         $Type: 'UI.DataField',
-        Value: Description
+        Value: Description,
+        ![@HTML5.CssDefaults]: {
+            $Type: 'HTML5.CssDefaultsType',
+            width: '15rem'
+        },
     },
 
     {
@@ -48,26 +56,46 @@ annotate services.Items with @(UI.LineItem: [
 
     {
         $Type: 'UI.DataField',
-        Value: Height
+        Value: Height,
+        ![@HTML5.CssDefaults]: {
+            $Type: 'HTML5.CssDefaultsType',
+            width: '7rem'
+        },
     },
 
     {
         $Type: 'UI.DataField',
-        Value: Width
+        Value: Width,
+        ![@HTML5.CssDefaults]: {
+            $Type: 'HTML5.CssDefaultsType',
+            width: '7rem'
+        },
     },
 
     {
         $Type: 'UI.DataField',
-        Value: Depth
+        Value: Depth,
+        ![@HTML5.CssDefaults]: {
+            $Type: 'HTML5.CssDefaultsType',
+            width: '7rem'
+        },
     },
 
     {
         $Type: 'UI.DataField',
-        Value: Quantity
+        Value: Quantity,
+        ![@HTML5.CssDefaults]: {
+            $Type: 'HTML5.CssDefaultsType',
+            width: '7rem'
+        },
     },
 
     {
         $Type: 'UI.DataField',
-        Value: Unitofmeasure
+        Value: Unitofmeasure,
+        ![@HTML5.CssDefaults]: {
+            $Type: 'HTML5.CssDefaultsType',
+            width: '10rem'
+        },
     },
 ])

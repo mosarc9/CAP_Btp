@@ -12,10 +12,10 @@ entity Header : cuid, managed {
     Email        : String;
     Firstname    : String;
     Lastname     : String;
-    Country      : /*  */String;
+    Country      : String;
     Creation     : Date;
     Deliverydate : DateTime;
-    Status       : Association to Status;
+    Statu        : Association to Status; // Statu Status_code
     Imageurl     : String;
     toItems      : Association to many Items
                        on toItems.HeaderID = $self;
@@ -46,7 +46,7 @@ entity Items : cuid {
 //2: amarillo
 //3: verde
 entity Status : CodeList {
-    key Code        : String(15) enum {
+    key code        : String(15) enum {
             O = 'Open';
             A = 'Acepted';
             X = 'Rejected';

@@ -8,65 +8,94 @@ annotate services.Header with {
     Country      @title: 'Country';
     Creation     @title: 'Creation Date';
     Deliverydate @title: 'Delivery Date';
-    Status       @title: 'Status';
+    Statu        @title: 'Status';
 };
 
 annotate services.Header with {
-    Status @Common: {
-        Text: 'Status.name' 
-        }
+    Statu @Common: {
+        Text           : Statu.name,
+        TextArrangement: #TextOnly
+    };
 };
+
 
 annotate services.Header with @(
 
-UI.LineItem: [
-    {
-        $Type: 'UI.DataField',
-        Value: HeaderID
-    },
-
-
-    {
-        $Type: 'UI.DataField',
-        Value: Firstname
-    },
-
-    {
-        $Type: 'UI.DataField',
-        Value: Lastname
-    },
-
-    {
-        $Type                : 'UI.DataField',
-        Value                : Email,
-        ![@HTML5.CssDefaults]: {
-            $Type: 'HTML5.CssDefaultsType',
-            width: '15rem'
+    UI.HeaderInfo                  : {
+        $Type         : 'UI.HeaderInfoType',
+        TypeName      : 'Sale Order',
+        TypeNamePlural: 'Sales Orders',
+        Title         : {
+            $Type: 'UI.DataField',
+            Value: Firstname
+        },
+        Description   : {
+            $Type: 'UI.DataField',
+            Value: Lastname
         },
     },
 
-    {
-        $Type                : 'UI.DataField',
-        Value                : Country,
-        ![@HTML5.CssDefaults]: {
-            $Type: 'HTML5.CssDefaultsType',
-            width: '10rem'
+    UI.SelectionFields:[
+        HeaderID,
+        Firstname,
+        Lastname,
+        Creation,
+        Statu_code
+    ],
+
+    UI.LineItem  : [
+        {
+            $Type: 'UI.DataField',
+            Value: HeaderID
         },
-    },
 
-    {
-        $Type: 'UI.DataField',
-        Value: Creation
-    },
 
-    {
-        $Type: 'UI.DataField',
-        Value: Deliverydate
-    },
+        {
+            $Type: 'UI.DataField',
+            Value: Firstname
+        },
 
-    {
-        $Type      : 'UI.DataField',
-        Value      : Status_Code,
-        Criticality: Status.Criticality
-    }
-], );
+        {
+            $Type: 'UI.DataField',
+            Value: Lastname
+        },
+
+        {
+            $Type                : 'UI.DataField',
+            Value                : Email,
+            ![@HTML5.CssDefaults]: {
+                $Type: 'HTML5.CssDefaultsType',
+                width: '15rem'
+            },
+        },
+
+        {
+            $Type                : 'UI.DataField',
+            Value                : Country,
+            ![@HTML5.CssDefaults]: {
+                $Type: 'HTML5.CssDefaultsType',
+                width: '10rem'
+            },
+        },
+
+        {
+            $Type: 'UI.DataField',
+            Value: Creation
+        },
+
+        {
+            $Type: 'UI.DataField',
+            Value: Deliverydate
+        },
+
+        {
+            $Type                : 'UI.DataField',
+            Value                : Statu_code,
+            Criticality          : Statu.Criticality,
+            ![@HTML5.CssDefaults]: {
+                $Type: 'HTML5.CssDefaultsType',
+                width: '10rem'
+            },
+        }
+    ],
+);
