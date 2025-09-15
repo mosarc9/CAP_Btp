@@ -38,6 +38,10 @@ entity Items : cuid {
 }
 
 //Value Help
+entity Country : cuid {
+    CountryID   : String(3);
+    CountryName : String(50);
+}
 
 
 //Code List
