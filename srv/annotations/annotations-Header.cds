@@ -7,17 +7,18 @@ annotate services.Header with {
     Email        @title: 'Email';
     Firstname    @title: 'First Name';
     Lastname     @title: 'Last Name';
-    Country      @title: 'Country';
+    country      @title: 'Country';
     Creation     @title: 'Creation Date';
     Deliverydate @title: 'Delivery Date';
     Statu        @title: 'Status';
 };
 
 annotate services.Header with {
-    Statu @Common: {
+    Statu   @Common: {
         Text           : Statu.name,
         TextArrangement: #TextOnly
     };
+
 };
 
 
@@ -66,9 +67,9 @@ annotate services.Header with @(
             },
             {
                 $Type: 'UI.DataField',
-                Value: Country
+                Value: country_ID
             },
-                        {
+            {
                 $Type: 'UI.DataField',
                 Value: Creation
             },
@@ -86,21 +87,18 @@ annotate services.Header with @(
         Label : 'Sale Order'
     }],
 
-    UI.Facets            : [
-        {
-            $Type : 'UI.ReferenceFacet',
-            Target: 'toItems/@UI.LineItem',
-            Label : 'Items',
-            ID    : 'toItems'
-        },
-    ],
+    UI.Facets            : [{
+        $Type : 'UI.ReferenceFacet',
+        Target: 'toItems/@UI.LineItem',
+        Label : 'Items',
+        ID    : 'toItems'
+    }, ],
 
     UI.LineItem          : [
         {
             $Type: 'UI.DataField',
             Value: HeaderID
         },
-
 
         {
             $Type: 'UI.DataField',
@@ -123,7 +121,7 @@ annotate services.Header with @(
 
         {
             $Type                : 'UI.DataField',
-            Value                : Country,
+            Value                : country_ID,
             ![@HTML5.CssDefaults]: {
                 $Type: 'HTML5.CssDefaultsType',
                 width: '10rem'

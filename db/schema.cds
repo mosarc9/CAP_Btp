@@ -12,7 +12,7 @@ entity Header : cuid, managed {
     Email        : String;
     Firstname    : String;
     Lastname     : String;
-    Country      : String;
+    country      : Association to Countries; // Country Country_ID
     Creation     : Date;
     Deliverydate : DateTime;
     Statu        : Association to Status; // Statu Status_code
@@ -38,9 +38,8 @@ entity Items : cuid {
 }
 
 //Value Help
-entity Country : cuid {
-    CountryID   : String(3);
-    CountryName : String(50);
+entity Countries : cuid {
+    country : String(50);
 }
 
 
