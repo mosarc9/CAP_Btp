@@ -3,6 +3,7 @@ namespace com.logali;
 using {
     cuid,
     managed,
+    Country,
     sap.common.CodeList
 } from '@sap/cds/common';
 
@@ -12,7 +13,7 @@ entity Header : cuid, managed {
     Email        : String;
     Firstname    : String;
     Lastname     : String;
-    country      : Association to Countries; // Country Country_ID
+    country      : Country;
     Creation     : Date;
     Deliverydate : DateTime;
     Statu        : Association to Status; // Statu Status_code
@@ -38,9 +39,9 @@ entity Items : cuid {
 }
 
 //Value Help
-entity Countries : cuid {
-    country : String(50);
-}
+//entity Countries : cuid {
+//   country : String(50);
+//}
 
 
 //Code List
@@ -56,3 +57,9 @@ entity Status : CodeList {
         };
         Criticality : Int16;
 }
+
+// entity selCustomers as
+//     select from Header {
+//         Firstname,
+//         Lastname
+//     }

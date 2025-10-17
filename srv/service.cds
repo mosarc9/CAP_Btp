@@ -7,4 +7,12 @@ service HeaderSrv {
     //Value helps
     @readonly
     entity VH_status as projection on SalesOrder.Status;
+
+    // // @cds.redirection.target
+    // entity VH_customer as select from Header{
+    //     ID,
+    //     Firstname,
+    //     Lastname
+    // } Order by Firstname;
+    
 }

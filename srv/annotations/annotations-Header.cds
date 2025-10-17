@@ -19,6 +19,11 @@ annotate services.Header with {
         TextArrangement: #TextOnly
     };
 
+    country @Common: {
+        Text           : country.name,
+        TextArrangement: #TextOnly
+    };
+
 };
 
 
@@ -39,10 +44,10 @@ annotate services.Header with @(
     },
 
     UI.SelectionFields   : [
-        HeaderID,
         Firstname,
         Lastname,
         Creation,
+        country_code,
         Statu_code
     ],
 
@@ -67,7 +72,7 @@ annotate services.Header with @(
             },
             {
                 $Type: 'UI.DataField',
-                Value: country_ID
+                Value: country_code
             },
             {
                 $Type: 'UI.DataField',
@@ -121,7 +126,7 @@ annotate services.Header with @(
 
         {
             $Type                : 'UI.DataField',
-            Value                : country_ID,
+            Value                : country_code,
             ![@HTML5.CssDefaults]: {
                 $Type: 'HTML5.CssDefaultsType',
                 width: '10rem'
@@ -149,3 +154,5 @@ annotate services.Header with @(
         }
     ],
 );
+
+//Value helps
