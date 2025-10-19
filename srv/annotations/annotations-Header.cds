@@ -54,10 +54,10 @@ annotate services.Header with @(
     UI.FieldGroup #GroupA: {
         $Type: 'UI.FieldGroupType',
         Data : [
-            {
-                $Type: 'UI.DataField',
-                Value: HeaderID
-            },
+            // {
+            //     $Type: 'UI.DataField',
+            //     Value: HeaderID
+            // },
             {
                 $Type: 'UI.DataField',
                 Value: Firstname
